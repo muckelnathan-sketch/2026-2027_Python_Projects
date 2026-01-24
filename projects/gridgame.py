@@ -6,6 +6,7 @@ def game_map():
             if [y, x] == position:
                 print("X", end=" ")
             else:
+                print("o", end=" ")
         print()  # new line after each row
 def c(works):
     if not works:

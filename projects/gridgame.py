@@ -17,8 +17,7 @@ def game(): #this is the control of the game
     works=True
     global position
     print("DEBUG:", position)
-    where = input("where: ")
-    match where:
+    match input("where: ").lower().strip():
         case "w":
             if position[0] > 0:position[0] -= 1 
             else:works = False

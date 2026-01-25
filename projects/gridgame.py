@@ -22,19 +22,21 @@ def game(): #this is the control of the game
         case "w":
             if position[0] > 0:position[0] -= 1 
             else:works = False
-        case "s":
+        case "s": #copilot said this is more efficient
             if position[0] < 9:position[0] += 1 
             else:works = False
         case "a":
             if position[1] > 0:position[1] -= 1 
             else:works = False
         case "d":
-            if position[1] < 9:position[1] += 1 
-            else:works = False 
+            if position[1] < 9:position[1] += 1
+            else:works = False
+
     c(works) 
 while running: 
     os.system('cls')
     game_map()
     game()
 
-    #some reason the program gets confused when X is on the corners and top 
+    #some reason the program gets confused when X is on the corners and top , it was because my window of view of the code would go up a row when it printed "u cant go there"
+    #tmr i will add some gameplay features like characters at certain locations or even create a random maze

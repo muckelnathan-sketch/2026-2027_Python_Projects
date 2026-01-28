@@ -185,8 +185,8 @@ def print_statement(works, chest_opened = False):
     elif chest_opened:
         print("you've found treasure!!!")
     if need_diologue:
-        print(being_said)
-    else:
+        print(being_said) #some reason the else isnt working
+    if works and not chest_opened and not need_diologue:
         print()
 
 game_map() #call the game map at the beginning of the game

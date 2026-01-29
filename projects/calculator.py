@@ -1,0 +1,1 @@
+print(f"your answer: {eval(input("Hello! \nEnter your math: ").replace("x","*"))}")

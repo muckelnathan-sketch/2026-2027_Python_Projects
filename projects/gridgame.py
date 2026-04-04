@@ -156,7 +156,7 @@ def chest_open(position):
     
 maze_gen(150)
 chest_gen(10)
-NPC_spawning(2)
+NPC_spawning(10)
 entrapment_debugger(player)
 for chest in chests:
     entrapment_debugger(chest)

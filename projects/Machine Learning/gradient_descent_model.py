@@ -28,14 +28,16 @@ class AI:
         return w*x+b
        
     def train(self, x,y,lr):
+            x = np.array(x)
+            y = np.array(y)
             epochs = 0
             self.bias_optimized,self.weight_optimized = False,False
             while not self.bias_optimized or not self.weight_optimized:
               epochs += 1
              
-              residuals = [self.func(point) - y[int(index)] for index, point in enumerate(x)]
-              weight_gradient = statistics.mean([residuals[i] * x[i] for i in range(len(residuals))])*2
-              bias_gradient = statistics.mean(residuals)*2
+              residuals = np.array([self.func(point) - y[int(index)] for index, point in enumerate(x)])
+              weight_gradient = np.mean([residuals[i] * x[i] for i in range(len(residuals))])*2
+              bias_gradient = np.mean((residuals))*2
               self.weight_optimized = abs(weight_gradient) <= self.tolerance
               self.bias_optimized = abs(bias_gradient) <= self.tolerance
               if not self.weight_optimized:
@@ -47,8 +49,8 @@ class AI:
                 break
               if epochs == 300000:
                 break  
-            MSE = statistics.mean([residual**2 for residual in residuals])
-            return f" MSE: {MSE}, epochs: {epochs}, r2: {1 - (MSE / statistics.mean([(y[i] - statistics.mean(y))**2 for i in range(len(y))]))}"
+            MSE = np.mean([residual**2 for residual in residuals])
+            return f" MSE: {MSE}, epochs: {epochs}, r2: {1 - (MSE / np.mean([(y[i] - np.mean(y))**2 for i in range(len(y))]))}"
 #r2 = 1 - MSER/MSEB
 
 
